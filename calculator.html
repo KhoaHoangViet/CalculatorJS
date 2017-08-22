@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+    <link href = "calculator.css" rel = "stylesheet">
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div id = "calculator">
+      <div id = "display">
+        <div id = "result"></div>
+        <div id = "current"></div>
+      </div>
+      <div id = "buttons">
+        <div>
+          <button class="button special">C</button>
+          <button class="button special">AC</button>
+          <button class="button special">/</button>
+          <button class="button special">*</button>
+          <button class="button ">7</button>
+          <button class="button">8</button>
+          <button class="button">9</button>
+          <button class="button special">+</button>
+          <button class="button">4</button>
+          <button class="button">5</button>
+          <button class="button">6</button>
+          <button class="button special">-</button>
+          <div id = "threerow">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button><br>
+            <button class="button">0</button>
+            <button class="button">.</button>
+            <button class="button">+/-</button>
+          </div>
+          <button class="button" id="equal">=</button>
+        </div>
+        <div id = "operator"></div>
+        <div id = "memory"></div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="calculator.js"></script>
+  </body>
+</html>

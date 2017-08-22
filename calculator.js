@@ -9,13 +9,13 @@ $(document).ready(function(){
     switch(cChar){
       case "C":{
           cNumber = "";
-          $("#result").text("");
-          $("#current").text(cString);
+          displayResult("");
+          displayCurrent(cString);
         break;
       }
       case "AC":{
-        $("#result").text("");
-        $("#current").text("");
+        displayResult("");
+        displayCurrent("");
         cString = "";
         cNumber = "";
         cOperator = "";
@@ -26,8 +26,8 @@ $(document).ready(function(){
           if(sign) sign = false;
           else sign = true;
           cNumber = -cNumber;
-          $("#result").text(cNumber);
-          $("#current").text(cString + cNumber);
+          displayResult(cNumber);
+          displayCurrent(cString + cNumber);
         }
         // else{
         //   cString += "-";
@@ -50,24 +50,24 @@ $(document).ready(function(){
         else if(preChar == 3){
           cNumber = "";
           cString = "";
-          $("#current").text("");
+          displayCurrent("");
         }
         cNumber += cChar;
-        $("#result").text(cNumber);
-        $("#current").text(cString + cNumber);
+        displayResult(cNumber);
+        displayCurrent(cString + cNumber);
         preChar = 1;
         break;
       }
       case ".":{
         if(preChar == 1){
           cNumber += cChar;
-          $("#result").text(cNumber);
-          $("#current").text(cString + cNumber);
+          displayResult(cNumber);
+          displayCurrent(cString + cNumber);
         }
         else{
           cNumber = "0.";
-          $("#result").text(cNumber);
-          $("#current").text(cString + cNumber);
+          displayResult(cNumber);
+          displayCurrent(cString + cNumber);
         }
         break;
       }
@@ -77,14 +77,14 @@ $(document).ready(function(){
       case "*":
       case "/": {
         if(preChar == 0){
-          $("#current").text("Please input a number before operator!");
+          displayCurrent("Please input a number before operator!");
           break;
         }
         cOperator = cChar;
         if(preChar == 1){
           cString += cNumber;
         }
-        $("#current").text(cString +" "+ cChar);
+        displayCurrent(cString +" "+ cChar);
         cNumber = "";
         preChar = 2;
         break;
@@ -92,7 +92,7 @@ $(document).ready(function(){
 
       case "=":{
         if(preChar == 0 || preChar == 2){
-          $("#current").text("Wrong input!");
+          displayCurrent("Wrong input!");
           break;
         }
         else{
@@ -100,8 +100,8 @@ $(document).ready(function(){
           cNumber = resultNum;
           cString = resultNum;
           preChar = 3;
-          $("#result").text(resultNum);
-          $("#current").text($("#current").text() +" = "+resultNum);
+          displayResult(resultNum);
+          displayCurrent($("#current").text() +" = "+resultNum);
           break;
         }
       }
@@ -110,5 +110,11 @@ $(document).ready(function(){
   function calculate(){
     var needCal = $("#current").text();
     return eval(needCal);
+  }
+  function displayResult(str){
+    $("#result").html('<b>'+str+'</b>');
+  }
+  function displayCurrent(str){
+    $("#current").html('<b>'+str+'</b>');
   }
 });

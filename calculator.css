@@ -40,8 +40,20 @@
 }
 #result{
   height: 125px;
+  overflow: auto;
 }
 #current{
   background-color: white;
   height: 55px;
+  overflow: auto;
+}
+#result b{
+  float: right;
+  font-size: 400%;
+  padding-top: 25px;
+}
+#current b{
+  float: right;
+  padding-top: 12px;
+  font-size:150%;
 }
